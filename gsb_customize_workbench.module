@@ -1,0 +1,26 @@
+<?php
+/**
+ * @file
+ * Code for the GSB Customize Workbench feature.
+ */
+
+include_once 'gsb_customize_workbench.features.inc';
+
+// Change some menus on the my workbench page.
+function gsb_customize_workbench_menu_alter(&$items) {
+  // If the workbench sections tab page is defined, we remove it by setting the
+  // "access callback" to FALSE
+  if (isset($items["admin/workbench/sections"])) {
+    $items["admin/workbench/sections"]["access callback"] = FALSE;
+  }
+
+  // We want the content tab to be called Content.
+  if (isset($items["admin/workbench/content"])) {
+    $items["admin/workbench/content"]["title"] = "Content";
+  }
+}
+
+function gsb_customize_workbench_workbench_content_alter(&$options) {
+  $options['workbench_recent_content']['#view'] = 'gsb_workbench_recent_content';
+  $options['workbench_edited']['#view'] = 'gsb_workbench_edits_by_user';
+}

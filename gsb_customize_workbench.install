@@ -1,0 +1,9 @@
+<?php
+
+function gsb_customize_workbench_install() {
+  $views_defaults = variable_get('views_defaults', array());
+  $views_defaults['workbench_recent_content'] = TRUE;
+  $views_defaults['workbench_edited'] = TRUE;
+  $views_defaults['workbench_moderation'] = TRUE;
+  variable_set('views_defaults', $views_defaults);
+}

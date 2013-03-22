@@ -1,0 +1,13 @@
+name = GSB Customize Workbench
+description = Adds custom functionality to workbench.
+core = 7.x
+package = GSB
+php = 5.2.4
+version = 7.x-1.0
+project = gsb_customize_workbench
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = gsb_workbench_edits_by_user
+features[views_view][] = gsb_workbench_recent_content
+features_exclude[dependencies][ctools] = ctools
